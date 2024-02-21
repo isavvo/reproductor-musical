@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="reproductor.js"></script>
+    <title>Reproductor Musical</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .column-container {
+            display: flex;
+            width: 100%;
+        }
+
+        .column {
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .column-1 {
+            background-color: #fce4ec;
+            padding-left: 10%;
+
+        }
+
+        /*ventana scroll*/
+
+        .flex-container {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            height: 150px;
+            border: 1px solid #ccc;
+            overflow-y: auto;
+            background-color: ghostwhite;
+        }
+
+        .song-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .song-item {
+            padding: 10px;
+            background-color: white;
+            border-bottom: 1px solid #eee;
+            text-align: center;
+        }
+
+        .song-box {
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+            background-color: white;
+        }
+
+        .song-info {
+            padding-right: 50px;
+        }
+
+        .btn-song {
+            margin-left: 10px;
+            background-color: ghostwhite;
+            border-radius: 3px;
+            border: none;
+            font-size: 20px;
+        }
+        .btn-song:hover{
+            background-color: palevioletred;
+            cursor: pointer;
+        }
+        .btn-song:active{
+            background-color: rgb(189, 71, 110);
+            
+        }
+
+
+        .search-section {
+            display: flex;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            gap: 10px;
+        }
+
+        .search {
+            padding: 10px;
+            width: 50%;
+            border-radius: 5px;
+            border: solid 1px lightgrey;
+            
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="column-container">
+        <div class="column column-1">
+            <div class="search-section">
+                <input id="search" type="text" placeholder="Search...">
+                <button id="buscar" onclick="searchSongs()">Buscar</button>
+            </div>
+            <!--LISTA DEFAULT-->
+            <div id="flex-container" class="flex-container">
+                <!-- Song boxes dynamically created here -->
+            </div>
+            <p><b>Favoritos</b></p>
+            <!--Favoritos-->
+            <div id="favorites-container" class="flex-container">
+                <!-- Favorite song boxes dynamically created here -->
+            </div>
+            <p><b>Playlist</b></p>
+            <!--Playlist-->
+            <div id="playlist-container" class="flex-container">
+                <!-- Playlist song boxes dynamically created here -->
+            </div>
+        </div>
+        <div class="column column-2">
+            <h2>Canción actual</h2>
+            <!-- Section 3: Song Modal -->
+            <div class="song-modal">
+                <img id="current-song-cover" src="song-image.jpg" alt="Song Image">
+                <div class="song-details">
+                    <div id="current-song-name" class="song-info">Now Playing: Song Name</div>
+                    <div id="current-song-duration" class="song-info">Duration: 3:30</div>
+                    <div id="current-song-album" class="song-info">Album: Album Name</div>
+                    <div id="current-song-year" class="song-info">Year: 2022</div>
+                    <div id="current-song-genre" class="song-info">Genre: Pop</div>
+                </div>
+                <div class="controls">
+                    <button class="pause-btn" onclick="togglePlayPause()">Pause</button>
+                    <button class="return-btn">Return</button>
+                    <button class="skip-btn">Skip</button>
+                    <button class="stop-btn">Stop</button>
+                    <button class="mute-btn" onclick="toggleMute()">Mute</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Your existing JavaScript code remains unchanged
+    </script>
+
+</body>
+
+</html>
